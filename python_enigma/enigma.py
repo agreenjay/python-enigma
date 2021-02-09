@@ -319,7 +319,9 @@ class Enigma(object):
         physical_setting.reverse()
         for i in range(0, len(physical_setting)):
             self.wheel_pack.set(i, physical_setting[i])
-
+        for rotor in self.wheel_pack.rotors:
+            rotor.position = 1
+            
     def set_stecker(self, setting):
         """Accepts a string to be the new stecker board arrangement."""
         self.stecker = Stecker(setting=str(setting))
